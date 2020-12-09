@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+@foreach (var item in ViewBag.posts)
+{
+    <div class="table table-hover">
+        <h4 class="card-header">
+            <ul>
+                <li> <a style="color:white" href="/Post/VerDetalle?id=@item.Id">@item.Titulo</a></li>
+            </ul>
+        </h4>
+
+        <div class="card-body">
+
+            @foreach (var details in ViewBag.detalle)
+            {
+                if (details.IdPost == item.Id)
+                {
+                    <a href="#!" style="margin:5px" class="bg-light">@ViewBag.tagsDelPost[details.IdTags].Nombre </a>
+                }
+            }
+        </div>
+    </div>
+}

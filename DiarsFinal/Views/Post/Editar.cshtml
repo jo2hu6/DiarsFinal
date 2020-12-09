@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Edita tu Nota</h1>
+
+<form action="/Post/Editar" method="post">
+
+    <input type="hidden" name="Id" value="@ViewBag.Id" />
+
+    <label>Titulo</label>
+    <input name="Titulo" class="form-control" value="@ViewBag.Post.Titulo"/>
+    <br />
+    <label>Contenido</label>
+    <input name="Contenido"  class="form-control" value="@ViewBag.Contenido"/>
+
+    <br />
+
+    <button class="btn btn-primary">Guardar</button>
+    <a style="color:white" href="/Post/Index" class="btn btn-danger">Cancelar</a>
+
+</form>
+
+

@@ -1,0 +1,52 @@
+﻿
+
+@{
+    Layout = null;
+}
+@*<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script>
+    function remove(url) {
+        const http = new XMLHttpRequest();
+        http.open("GET", url);
+        http.send();
+        $(document).ready(function (e) {
+            $.get("/Post/_IndexB?busqueda=" + $("#busqueda").val(), function (respuesta) {
+                $("#tbody").html(respuesta);
+            });
+            e.preventDefault();
+        });
+    }
+</script>
+<div class="table table-hover">
+    @foreach (var item in ViewBag.posts)
+    {
+        <h4 class="">
+            <ul>
+                <li> <strong><a style="color:white" href="/Post/VerDetalle?id=@item.Id">@item.Titulo</a></strong>
+               <br /> 
+                <h6>@item.Contenido.Substring(0,50)...</h6>
+                </li>
+
+                <a class="btn btn-danger" onclick="remove('/Post/Eliminar?ID=@item.Id')">Eliminar</a>
+                <a class="btn btn-danger" onclick="remove('/Post/Editar?Id=@item.Id')">Editar</a>
+
+            </ul>
+
+        </h4>
+    <strong></strong>
+        <div class="card-body">
+
+                @foreach (var details in ViewBag.detalle)
+                {
+                    if (details.IdPost == item.Id)
+                    {
+                        <a href="#!" style="margin:5px" class="bg-light">@ViewBag.tagsDelPost[details.IdTags].Nombre </a>
+                    }
+                }
+            </div>
+
+    }
+</div>*@

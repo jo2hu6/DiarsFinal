@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<table class="table table-hover table-bordered" style="border-radius:10%">
+    <thead>
+        <tr class="card-header text-center">
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a style="color:dimgray" href="/Post/Tags?Id=@item.Id"> @item.Nombre</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

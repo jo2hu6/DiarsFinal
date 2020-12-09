@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+
+
+<script>
+    $(document).ready(function (e) {
+        $.get("/Post/_IndexB" , function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+
+
+
+<div id="tbody">
+
+</div>
+
+<script>
+    $("#busqueda").keyup(function (e) {
+        $.get("/Post/_IndexB?busqueda=" + $("#busqueda").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear</h1>
+
+<form action="/Cambiar/Crear" method="post" enctype="multipart/form-data">
+    <label></label>
+    <input class="form-control" name="" value="@Model." />
+    @*<strong>@Html.ValidationMessage("Tipo")</strong>*@
+    <label></label>
+    <input class="form-control" name="" value="@Model." />
+    @*<strong>@Html.ValidationMessage("Tipo")</strong>*@
+    <label></label>
+    <input class="form-control" name="" value="@Model." />
+    @*<strong>@Html.ValidationMessage("Tipo")</strong>*@
+    <label></label>
+    <input type="file" name="photo" />
+    @*<strong>@Html.ValidationMessage("Tipo")</strong>*@
+    <button class="btn btn-success">Crear</button>
+</form>

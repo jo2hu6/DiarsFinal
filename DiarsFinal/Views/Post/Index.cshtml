@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+<script>
+    $(document).ready(function (e) {
+        $.get("/Post/_IndexB?busqueda=" + $("#busqueda").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+
+<script>
+    $(document).ready(function (e) {
+        $.get("/Search/_Index?busqueda=" + $("#busqueda").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+
+@*llamar tags*@
+<script>
+    $(document).ready(function (e) {
+        $.get("/Search/Tagsss", function (respuesta) {
+            $("#tagss").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <a class="btn btn-secondary" href="/Post/Crear">Crear Nota </a>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+
+        <div class="col-sm-8 my-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-search"></i></div>
+                </div>
+                <input id="busqueda" name="busqueda" class="form-control" placeholder="Buscar Notas y/o Tags" />
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div id="tagss">
+
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div id="tbody">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#busqueda").keyup(function (e) {
+        $.get("/Search/_Index?busqueda=" + $("#busqueda").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+</script>
+
+

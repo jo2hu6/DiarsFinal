@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Tags";
+}
+
+<h1>Tags</h1>
+
+
+@foreach (var item in ViewBag.Tags)
+{
+    @foreach (var detalle in ViewBag.Detalles)
+    {
+        if (detalle.IdPost == item.Id)
+        {
+
+            <ul>
+
+                <li style="color:dimgray">@ViewBag.Tags[detalle.IdTags].Nombre</li>
+             @detalle.Id
+            </ul>
+
+        }
+    }
+
+}
+

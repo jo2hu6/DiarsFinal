@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "_Index";
+    Layout = null;
+}
+
+<script>
+    function remove(url) {
+        const http = new XMLHttpRequest();
+        http.open("GET", url);
+        http.send();
+        $(document).ready(function (e) {
+            $.get("/Post/Index?busqueda=" + $("#busqueda").val(), function (respuesta) {
+                $("#tbody").html(respuesta);
+            });
+            e.preventDefault();
+        });
+    }
+</script>
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="table table-hover">
+
+    <div style="background-color:dimgrey;border-radius:15px;width:30%;margin-left:35%;box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2);margin-top:-6%;margin-bottom:2%">
+        <h1 class="text-uppercase text-center text-white" style="padding:.7%">Notas</h1>
+    </div>
+
+    @foreach (var item in Model)
+    {
+<div class="table" style="box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2)">
+    <h4 class="card-header text-uppercase"><a style="color:black" href="/Post/VerDetalle?id=@item.Id">@item.Titulo</a></h4>
+
+    <div class="row" style="padding:2%">
+        <div class="col-sm-8">
+            <div class="text-secondary">
+                <h4>Contenido: </h4>
+
+                <h6>@item.Contenido.Substring(0, 50)...</h6>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div style="margin-top:5%">
+                <a id="prueba" class="btn btn-danger" style="color:white" onclick="remove('/Post/Eliminar?ID=@item.Id')">Eliminar</a>
+                <label class="text-secondary">  |  </label>
+                <a class="btn btn-info" href="/Post/Editar?Id=@item.Id">Editar</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+    }
+    <hr />
+</div>
+    <strong>Tags</strong>
+    <hr />
+    @foreach (var item in ViewBag.que)
+    {
+        <div class="card">
+            <a style="margin:5px;color:cornflowerblue" class="bg-light">@item.Nombre </a>
+        </div>
+    }
+<br />
+<br />
+<br />
