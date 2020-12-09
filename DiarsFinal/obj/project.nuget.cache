@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NPg6U/Tkkbg8TVSBYk09uuFnIraKwm+xvg3h909shWGgdmROCOBFWxvZ7NOAiX+NGl5nvcUDvWvGWeaxqRypqA==",
+  "dgSpecHash": "mwoLWzb47+duEozKf9zxeTsFGOSHzBng+ErDI0Hfvpyt1qLCAmygbQ9TSm3n8q0mNJ4Q8jR4U+XcPtumzA+y9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joshu\\Downloads\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
+  "projectFilePath": "D:\\JOSUE\\UPN\\8voCiclo\\DIARS\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joshu\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\joshu\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

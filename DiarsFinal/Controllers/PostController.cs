@@ -34,6 +34,7 @@ namespace DiarsFinal.Controllers
 
         public IActionResult VerDetalle(int id)
         {
+            ViewBag.tag = context.Tags.Where(a => a.Id == id).ToList();
             ViewBag.posts = context.Posts.Where(a => a.Id == id).ToList();
             ViewBag.tagsDelPost = context.Tags.ToList();
             ViewBag.detalle = context.DetallePostTages.ToList();

@@ -38,19 +38,18 @@
         <div class="col-sm-2">
             <a class="btn btn-secondary" href="/Post/Crear">Crear Nota </a>
         </div>
-
         <br />
         <br />
         <br />
 
-
-        <div class="col-sm-8 my-0">
+        <div class="col-sm- my-0">
             <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-search"></i></div>
-                </div>
-                <input id="busqueda" name="busqueda" class="form-control" placeholder="Buscar Notas y/o Tags" />
+                <input id="busqueda" name="busqueda" class="form-control" placeholder="Buscar" />
             </div>
+        </div>
+
+        <div class="col-sm-2">
+            <a class="btn btn-secondary" href="#" id="limpiar-filtros">Sin Filtro</a>
         </div>
     </div>
 </div>
@@ -73,11 +72,26 @@
 
 <script>
     $("#busqueda").keyup(function (e) {
-        $.get("/Search/_Index?busqueda=" + $("#busqueda").val(), function (respuesta) {
+        $.get("/Search/_Index?busqueda=" + $("#busqueda").val() + "&tag=" + $(".tag-item.text-secondary").data('tag'), function (respuesta) {
             $("#tbody").html(respuesta);
         });
         e.preventDefault();
     });
+    $(document).on("click", ".tag-item", function (e) {
+        e.preventDefault();
+        $('.tag-item').removeClass("text-danger")
+        $(this).addClass("text-secondary")
+        $.get("/Search/_Index?tag=" + $(this).data('tag') + "&busqueda=" + $("#busqueda").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+    })
+    $('#limpiar-filtros').on("click", function (e) {
+        e.preventDefault();
+        $('.tag-item').removeClass("text-secondary")
+        $("#busqueda").val("")
+        $.get("/Search/_Index", function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+    })
 </script>
-
 

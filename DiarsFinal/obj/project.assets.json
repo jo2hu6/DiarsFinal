@@ -8177,11 +8177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\Downloads\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
+      "projectUniqueName": "D:\\JOSUE\\UPN\\8voCiclo\\DIARS\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
       "projectName": "DiarsFinal",
-      "projectPath": "C:\\Users\\joshu\\Downloads\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
+      "projectPath": "D:\\JOSUE\\UPN\\8voCiclo\\DIARS\\DiarsFinal\\DiarsFinal\\DiarsFinal.csproj",
       "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\Downloads\\DiarsFinal\\DiarsFinal\\obj\\",
+      "outputPath": "D:\\JOSUE\\UPN\\8voCiclo\\DIARS\\DiarsFinal\\DiarsFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",

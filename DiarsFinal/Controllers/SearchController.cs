@@ -30,24 +30,30 @@ namespace DiarsFinal.Controllers
         }
 
         [HttpGet]
-        public IActionResult _Index(string busqueda)
+        public IActionResult _Index(string busqueda, int? tag = null)
         {
             var query = context.Posts.AsQueryable();
             var queryq = context.Tags.AsQueryable();
+            if (tag.HasValue)
+            {
+                query = query.Where(a => a.DetallePostTags.Any(y => y.IdTags == tag));
+            }
+
 
             if (!string.IsNullOrEmpty(busqueda))
             {
-                query = query.Where(a => a.Titulo.Contains(busqueda)).Take(5);
-                
+                busqueda = busqueda.ToLower().Trim();
+                query = query.Where(a => a.Titulo.ToLower().Trim().Contains(busqueda));
             }
             if (!string.IsNullOrEmpty(busqueda))
             {
-                queryq = queryq.Where(a => a.Nombre.Contains(busqueda)).Take(5);
-                
+                busqueda = busqueda.ToLower().Trim();
+                queryq = queryq.Where(a => a.Nombre.ToLower().Trim().Contains(busqueda)).Take(10);
             }
+
             ViewBag.que = queryq;
             query.ToList();
-            return View(query);
+            return View(query.Take(10));
         }
 
         [HttpGet]

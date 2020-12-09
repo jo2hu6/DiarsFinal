@@ -7,30 +7,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
+<h1>Crea tu Nota</h1>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
             <form action="/Post/Crear" method="post">
-
-                <strong>Categoría</strong>
-                <select class="form-control" name="Categoria">
-                    <option>---Eliga una Categoría---</option>
-                    @foreach (var item in ViewBag.cat)
-                    {
-                        <option value="@item.Nombre">@item.Nombre</option>
-                    }
-                </select>
-                <br />
                 <br />
                 <strong>Titulo</strong>
                 <input class="form-control" name="Titulo" />
                 <label>@Html.ValidationMessage("Titulo")</label>
+                <br />
                 <strong>Contenido</strong>
                 @*<textarea id="Contenido" name="Contenido" runat="server"></textarea>*@
                 <textarea class="form-control" id="markdown" name="Contenido"></textarea>
-                <strong>Tags</strong>
-                <br />
-                <select name="tags" id="tags[]" multiple>
+                <strong>Etiqueta: </strong>
+                <select name="tags" id="tags[]">
                     @foreach (var item1 in ViewBag.cat)
                     {
                         <option value="@item1.Id"> @item1.Nombre </option>
@@ -38,7 +30,9 @@
                     }
                 </select>
                 <br />
-                <button class="btn btn-dark">Crear Post</button>
+                <br />
+                <button class="btn btn-secondary">Guardar</button>
+                <a style="color:white" href="/Post/Index" class="btn btn-danger">Cancelar</a>
             </form>
         </div>
 

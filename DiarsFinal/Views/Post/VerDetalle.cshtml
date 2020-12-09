@@ -3,25 +3,19 @@
     ViewData["Title"] = "VerDetalle";
 }
 
+<h1>Detalle de la Nota</h1>
+
 @foreach (var item in ViewBag.posts)
 {
     <div class="card">
-        <h3 class="card-header">@item.Titulo</h3>
+        <h3 class="card-header text-uppercase">@item.Titulo</h3>
         <div class="card-body">
 
             <p class="card-text">
                 @Html.Raw(item.Contenido.Replace("\r\n", "<br />"))
-                <h6 class="card-title">Fecha Modificación:@item.Fecha</h6>
-        </div>
-        <div class="card-body">
-
-            @foreach (var details in ViewBag.detalle)
-            {
-                if (details.IdPost == item.Id)
-                {
-                    <a href="#!" style="margin:5px" class="bg-light">@ViewBag.tagsDelPost[details.IdTags].Nombre </a>
-                }
-            }
+                <h6><strong>Fecha Modificación: </strong>@item.Fecha</h6>
         </div>
     </div>
 }
+<br />
+<a style="color:white" href="/Post/Index" class="btn btn-secondary">Regresar</a>
